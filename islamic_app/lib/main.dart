@@ -34,7 +34,7 @@ class Myapp extends StatelessWidget {
         HomeScrean.routName: (_) => HomeScrean(),
         SplashScrean.routName: (_) => SplashScrean(),
         SurasScrean.routname: (_) => SurasScrean(),
-        OnboardingSceran.routname: (_)=> OnboardingSceran(),
+        OnboardingSceran.routname: (__)=> OnboardingSceran(),
       },
       initialRoute: SplashScrean.routName,
     );
