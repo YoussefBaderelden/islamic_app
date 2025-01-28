@@ -1,10 +1,7 @@
 abstract final class Assetsmaneger {
   ///svg
 
-  static const String icAhades = 'assets/images/ic_ahades.svg';
-  static const String icSepha = 'assets/images/ic_sepha.svg';
-  static const String icRadio = 'assets/images/ic_radio.svg';
-  static const String icPrayTimes = 'assets/images/pray_times.svg';
+
   static const String Sura_view = 'assets/images/sura_number.svg';
 
 
@@ -28,5 +25,10 @@ abstract final class Assetsmaneger {
   static const String onboarding3 = 'assets/images/onboarding3.png';
   static const String onboarding4 = 'assets/images/onboarding4.png';
   static const String onboarding5 = 'assets/images/onboarding5.png';
+  static const String icAhades = 'assets/images/ic_ahades.png';
+  static const String icSepha = 'assets/images/ic_sepha.png';
+  static const String icRadio = 'assets/images/ic_radio.png';
+  static const String icPrayTimes = 'assets/images/pray_times.png';
+  static const String bgHadeth = 'assets/images/Background_Hadeth.png';
 
 }

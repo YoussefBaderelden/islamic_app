@@ -28,6 +28,7 @@ class _SurasScreanState extends State<SurasScrean> {
     return Scaffold(
       backgroundColor: Appcolors.black,
       appBar: AppBar(
+        surfaceTintColor:Appcolors.black ,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -66,23 +67,24 @@ class _SurasScreanState extends State<SurasScrean> {
           ),
           suraContent.isEmpty
               ? Expanded(
-                  child: Center(
-                      child: CircularProgressIndicator(
-                  color: Appcolors.primary,
-                )))
+                child: Center(
+                    child: CircularProgressIndicator(
+                color: Appcolors.primary,
+                                  )),
+              )
               : Expanded(
-                  child: SingleChildScrollView(
-                    child: Text(
-                      suraContent,
-                      textDirection: TextDirection.rtl,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
+                child: SingleChildScrollView(
+                  child: Text(
+                    suraContent,
+                    textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Appcolors.primary,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
+              ),
           Image.asset(Assetsmaneger.suraContentBG),
         ],
       ),
@@ -105,5 +107,6 @@ class _SurasScreanState extends State<SurasScrean> {
       suraFormate[i] += '[${i + 1}]  ';
     }
     suraContent = suraFormate.join();
+
   }
 }

@@ -20,6 +20,7 @@ class HomeScrean extends StatefulWidget {
 
 class _HomeScreanState extends State<HomeScrean> {
   int currentindexselected = 0;
+  PageController controller = PageController();
   @override
   Widget build(BuildContext context) {
 
@@ -38,27 +39,37 @@ class _HomeScreanState extends State<HomeScrean> {
             unselectedItemColor: Appcolors.black,
             onTap: (value) {
               currentindexselected = value;
+              controller.jumpToPage(currentindexselected);
               setState(() {});
             },
             currentIndex: currentindexselected,
             items: [
               BottomNavigationBarItem(
-                  icon: Image.asset(Assetsmaneger.icQuran), label: 'Home'),
+                  icon: ImageIcon(AssetImage(Assetsmaneger.icQuran)), label: 'Home'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(Assetsmaneger.icAhades),
+                  icon: ImageIcon(AssetImage(Assetsmaneger.icAhades)),
                   label: 'Ahades'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(Assetsmaneger.icSepha),
+                  icon: ImageIcon(AssetImage(Assetsmaneger.icSepha)),
                   label: 'Sepha'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(Assetsmaneger.icRadio),
+                  icon: ImageIcon(AssetImage(Assetsmaneger.icRadio)),
                   label: 'Radio'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(Assetsmaneger.icPrayTimes),
+                  icon: ImageIcon(AssetImage(Assetsmaneger.icPrayTimes)),
                   label: 'PrayTimes'),
             ]),
       ),
-      body: buttomIcons[currentindexselected],
+      body:PageView(
+        controller:controller ,
+        onPageChanged: (value) {
+          currentindexselected = value;
+          setState(() {
+
+          });
+        },
+        children:  buttomIcons,
+      ),
     );
   }
 }

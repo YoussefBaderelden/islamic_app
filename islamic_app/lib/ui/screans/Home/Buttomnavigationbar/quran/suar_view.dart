@@ -43,26 +43,24 @@ class SuarView extends StatelessWidget {
                 ],
               ),
               SizedBox(width: MediaQuery.of(context).size.width*0.03),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${suras.suraEg}',
-                      style: TextStyle(
-                          color: Appcolors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    Text(
-                      '${suras.versesNum} Verses  ',
-                      style: TextStyle(
-                          color: Appcolors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700),
-                    )
-                  ],
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${suras.suraEg}',
+                    style: TextStyle(
+                        color: Appcolors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    '${suras.versesNum} Verses  ',
+                    style: TextStyle(
+                        color: Appcolors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  )
+                ],
               ),
               Spacer(),
               Text(

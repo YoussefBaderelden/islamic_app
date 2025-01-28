@@ -22,7 +22,6 @@ class OnboardingSceran extends StatelessWidget {
             onPageChanged: (value) {
               index = value;
             },
-
             controller: controler,
             children: [
               Container(
@@ -32,7 +31,9 @@ class OnboardingSceran extends StatelessWidget {
                     Center(child: Image.asset(Assetsmaneger.logo)),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Image.asset(Assetsmaneger.onboarding1),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                    ),
                     Text(
                       'Welcome To Islmi App',
                       style: TextStyle(
@@ -50,7 +51,9 @@ class OnboardingSceran extends StatelessWidget {
                     Center(child: Image.asset(Assetsmaneger.logo)),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Image.asset(Assetsmaneger.onboarding2),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       'Welcome To Islami',
                       style: TextStyle(
@@ -58,7 +61,9 @@ class OnboardingSceran extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 24),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       textAlign: TextAlign.center,
                       'We Are Very Excited To Have You In Our Community',
@@ -77,7 +82,9 @@ class OnboardingSceran extends StatelessWidget {
                     Center(child: Image.asset(Assetsmaneger.logo)),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Image.asset(Assetsmaneger.onboarding3),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       'Reading the Quran',
                       style: TextStyle(
@@ -85,7 +92,9 @@ class OnboardingSceran extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 24),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       textAlign: TextAlign.center,
                       'Read, and your Lord is the Most Generous',
@@ -104,7 +113,9 @@ class OnboardingSceran extends StatelessWidget {
                     Center(child: Image.asset(Assetsmaneger.logo)),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Image.asset(Assetsmaneger.onboarding4),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       'Bearish',
                       style: TextStyle(
@@ -112,7 +123,9 @@ class OnboardingSceran extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 24),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       textAlign: TextAlign.center,
                       'Praise the name of your Lord, the Most\n High',
@@ -131,7 +144,9 @@ class OnboardingSceran extends StatelessWidget {
                     Center(child: Image.asset(Assetsmaneger.logo)),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Image.asset(Assetsmaneger.onboarding5),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       'Holy Quran Radio',
                       style: TextStyle(
@@ -139,7 +154,9 @@ class OnboardingSceran extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 24),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
                     Text(
                       textAlign: TextAlign.center,
                       'You can listen to the Holy Quran Radio\n through the application for free and easily',
@@ -159,9 +176,11 @@ class OnboardingSceran extends StatelessWidget {
         color: Appcolors.black,
         child: Row(
           children: [
-           TextButton(
+            TextButton(
                 onPressed: () {
-                  controler.previousPage(duration: Duration(microseconds: 100000), curve: Curves.easeIn);
+                  controler.previousPage(
+                      duration: Duration(microseconds: 100000),
+                      curve: Curves.easeIn);
                 },
                 child: Text(
                   'Back',
@@ -172,32 +191,30 @@ class OnboardingSceran extends StatelessWidget {
                 )),
             Spacer(),
             SmoothPageIndicator(
-             effect: WormEffect(
-               // dotColor: Appcolors.primary,
-               activeDotColor: Appcolors.primary
-             ),
-              controller: controler, count: 5,),
+              effect: WormEffect(
+                  // dotColor: Appcolors.primary,
+                  activeDotColor: Appcolors.primary),
+              controller: controler,
+              count: 5,
+            ),
             Spacer(),
             TextButton(
                 onPressed: () {
-                  controler.nextPage(duration: Duration(microseconds:100000 ), curve: Curves.easeIn);
+                  controler.nextPage(
+                      duration: Duration(microseconds: 100000),
+                      curve: Curves.easeIn);
                   print(index);
-                  if (index == 4 ){
-                    Navigator.pushNamed(context, HomeScrean.routName);
-                  }
-                  if (index == 3 ){
+                  if (index == 4) {
                     Navigator.pushNamed(context, HomeScrean.routName);
                   }
                 },
                 child: Text(
-                 'Next' ,
+                  'Next',
                   style: TextStyle(
                       color: Appcolors.primary,
                       fontWeight: FontWeight.w700,
                       fontSize: 16),
-                )
-
-            ),
+                )),
           ],
         ),
       ),

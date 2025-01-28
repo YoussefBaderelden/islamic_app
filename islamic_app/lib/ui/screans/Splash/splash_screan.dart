@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/ui/screans/Home/home_screan.dart';
+import 'package:islamic_app/ui/screans/onbording/onboarding_sceran.dart';
 import 'package:islamic_app/ui/utils/AssetsManeger.dart';
 
 class SplashScrean extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SplashScreanState extends State<SplashScrean> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3),() {
-      Navigator.pushNamed(context, HomeScrean.routName);
+      Navigator.pushNamed(context, OnboardingSceran.routname);
     },);
   }
   @override
