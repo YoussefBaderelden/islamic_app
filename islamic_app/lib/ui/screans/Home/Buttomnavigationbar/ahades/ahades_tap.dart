@@ -45,7 +45,9 @@ class _AhadesTapState extends State<AhadesTap> {
                           itemBuilder: (context, index, realIndex) {
                             return
 
-                              hadeth.isEmpty? Center(child: CircularProgressIndicator()): InkWell(
+                              hadeth.isEmpty? Center(child: CircularProgressIndicator(
+                                color: Appcolors.black,
+                              )): InkWell(
                               onTap: () {
                                 Navigator.pushNamed(
                                     context, HadethScrean.routname,
@@ -115,17 +117,19 @@ class _AhadesTapState extends State<AhadesTap> {
         ));
   }
 
-  getHadthcontent() async {
+  Future<void> getHadthcontent() async {
+    List<HadethModelClass> loadedHadeth = [];
     for (var i = 1; i <= 50; i++) {
       String getcontent = await rootBundle.loadString('assets/Hadeeth/h$i.txt');
       List<String> HadethFormate = getcontent.split('\n');
-      int index = i;
-      String Title = HadethFormate[0];
+      String title = HadethFormate.first;
       HadethFormate.removeAt(0);
       String content = HadethFormate.join();
-      var Hadeth = HadethModelClass(Title, content,index);
-      hadeth.add(Hadeth);
-      setState(() {});
+      loadedHadeth.add(HadethModelClass(title, content, i));
     }
+    setState(() {
+      hadeth = loadedHadeth;
+    });
   }
+
 }

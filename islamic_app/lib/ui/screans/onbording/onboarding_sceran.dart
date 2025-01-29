@@ -4,219 +4,128 @@ import 'package:islamic_app/ui/utils/AppColors.dart';
 import 'package:islamic_app/ui/utils/AssetsManeger.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardingSceran extends StatelessWidget {
+class OnboardingSceran extends StatefulWidget {
   const OnboardingSceran({super.key});
 
   static const String routname = 'onboarding';
 
   @override
-  Widget build(BuildContext context) {
-    final controler = PageController();
-    int index = 0;
+  State<OnboardingSceran> createState() => _OnboardingSceranState();
+}
 
+class _OnboardingSceranState extends State<OnboardingSceran> {
+  final PageController controler = PageController();
+  int index = 0;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Appcolors.black,
       body: SafeArea(
-        child: Container(
-          child: PageView(
-            onPageChanged: (value) {
+        child: PageView(
+          onPageChanged: (value) {
+            setState(() {
               index = value;
-            },
-            controller: controler,
-            children: [
-              Container(
-                color: Appcolors.black,
-                child: Column(
-                  children: [
-                    Center(child: Image.asset(Assetsmaneger.logo)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Image.asset(Assetsmaneger.onboarding1),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.08,
-                    ),
-                    Text(
-                      'Welcome To Islmi App',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                color: Appcolors.black,
-                child: Column(
-                  children: [
-                    Center(child: Image.asset(Assetsmaneger.logo)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Image.asset(Assetsmaneger.onboarding2),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      'Welcome To Islami',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      textAlign: TextAlign.center,
-                      'We Are Very Excited To Have You In Our Community',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                color: Appcolors.black,
-                child: Column(
-                  children: [
-                    Center(child: Image.asset(Assetsmaneger.logo)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Image.asset(Assetsmaneger.onboarding3),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      'Reading the Quran',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      textAlign: TextAlign.center,
-                      'Read, and your Lord is the Most Generous',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                color: Appcolors.black,
-                child: Column(
-                  children: [
-                    Center(child: Image.asset(Assetsmaneger.logo)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Image.asset(Assetsmaneger.onboarding4),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      'Bearish',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      textAlign: TextAlign.center,
-                      'Praise the name of your Lord, the Most\n High',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                color: Appcolors.black,
-                child: Column(
-                  children: [
-                    Center(child: Image.asset(Assetsmaneger.logo)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Image.asset(Assetsmaneger.onboarding5),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      'Holy Quran Radio',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    Text(
-                      textAlign: TextAlign.center,
-                      'You can listen to the Holy Quran Radio\n through the application for free and easily',
-                      style: TextStyle(
-                          color: Appcolors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            });
+          },
+          controller: controler,
+          children: [
+            _buildOnboardingPage(Assetsmaneger.onboarding1, 'Welcome To Islmi App', ''),
+            _buildOnboardingPage(Assetsmaneger.onboarding2, 'Welcome To Islami',
+                'We Are Very Excited To Have You In Our Community'),
+            _buildOnboardingPage(Assetsmaneger.onboarding3, 'Reading the Quran',
+                'Read, and your Lord is the Most Generous'),
+            _buildOnboardingPage(Assetsmaneger.onboarding4, 'Bearish',
+                'Praise the name of your Lord, the Most High'),
+            _buildOnboardingPage(Assetsmaneger.onboarding5, 'Holy Quran Radio',
+                'You can listen to the Holy Quran Radio\n through the application for free and easily'),
+          ],
         ),
       ),
       bottomSheet: Container(
         color: Appcolors.black,
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
           children: [
-            TextButton(
-                onPressed: () {
-                  controler.previousPage(
-                      duration: Duration(microseconds: 100000),
-                      curve: Curves.easeIn);
-                },
+            // إخفاء زر "Back" عندما يكون index = 0
+            if (index > 0)
+              TextButton(
+                onPressed: () => controler.previousPage(
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                ),
                 child: Text(
                   'Back',
                   style: TextStyle(
-                      color: Appcolors.primary,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16),
-                )),
+                    color: Appcolors.primary,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
             Spacer(),
             SmoothPageIndicator(
-              effect: WormEffect(
-                  // dotColor: Appcolors.primary,
-                  activeDotColor: Appcolors.primary),
+              effect: WormEffect(activeDotColor: Appcolors.primary),
               controller: controler,
               count: 5,
             ),
             Spacer(),
             TextButton(
-                onPressed: () {
+              onPressed: () {
+                if (index == 4) {
+                  Navigator.pushReplacementNamed(context, HomeScrean.routName);
+                } else {
                   controler.nextPage(
-                      duration: Duration(microseconds: 100000),
-                      curve: Curves.easeIn);
-                  print(index);
-                  if (index == 4) {
-                    Navigator.pushNamed(context, HomeScrean.routName);
-                  }
-                },
-                child: Text(
-                  'Next',
-                  style: TextStyle(
-                      color: Appcolors.primary,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16),
-                )),
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                }
+              },
+              child: Text(
+                index == 4 ? 'Finish' : 'Next',
+                style: TextStyle(
+                  color: Appcolors.primary,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildOnboardingPage(String image, String title, String subtitle) {
+    return Container(
+      color: Appcolors.black,
+      child: Column(
+        children: [
+          Center(child: Image.asset(Assetsmaneger.logo)),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+          Image.asset(image),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+          Text(
+            title,
+            style: TextStyle(
+              color: Appcolors.primary,
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
+          ),
+          if (subtitle.isNotEmpty) ...[
+            SizedBox(height: MediaQuery.of(context).size.height * 0.005),
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Appcolors.primary,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }

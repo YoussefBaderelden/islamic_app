@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islamic_app/ui/utils/AppColors.dart';
 import 'package:islamic_app/ui/utils/AssetsManeger.dart';
 
@@ -41,30 +42,32 @@ class _SephaTapState extends State<SephaTap> {
                   setState(() {});
                 },
                 child: Stack(
+                  alignment: Alignment.center,
                   children: [
                     Center(child: Image.asset(Assetsmaneger.sepha)),
-                    Positioned(
-                      top: 180,
-                      left: 160,
-                      child: Text(
-                        'سبحان الله',
-                        style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Appcolors.white),
+                    Container(margin: EdgeInsets.only(top: 40),
+                      child: Column(
+                        children: [
+                          Center(
+                            child: Text(
+                              'سبحان الله',
+                              style: TextStyle(
+                                  fontSize: 36,
+                                  fontWeight: FontWeight.bold,
+                                  color: Appcolors.white),
+                            ),
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            '$counter',
+                            style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold,
+                                color: Appcolors.white),
+                          ),
+                        ],
                       ),
-                    ),
-                    Positioned(
-                      top: 250,
-                      left: 210,
-                      child: Text(
-                        '$counter',
-                        style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Appcolors.white),
-                      ),
-                    ),
+                    )
                   ],
                 ),
               )
