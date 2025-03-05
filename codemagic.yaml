@@ -1,11 +1,10 @@
 workflows:
-  ios-workflow:
-    name: iOS Build
+  ios-release:
+    name: iOS Release Build
     max_build_duration: 120
     environment:
       flutter: stable
       xcode: latest
-      cocoapods: default
     scripts:
       - name: Install dependencies
         script: |
@@ -13,10 +12,7 @@ workflows:
       - name: Build iOS App
         script: |
           flutter build ios --release --no-codesign
+          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk iphoneos -configuration Release archive -archivePath build/Runner.xcarchive
+          xcodebuild -exportArchive -archivePath build/Runner.xcarchive -exportOptionsPlist ios/exportOptions.plist -exportPath build/ios
     artifacts:
-      - build/ios/iphoneos/*.ipa
-      - build/ios/iphoneos/*.app
-    publishing:
-      email:
-        recipients:
-          - "your-email@example.com"  # ضع بريدك الإلكتروني هنا لتصلك إشعارات البناء
+      - build/ios/*.ipa
